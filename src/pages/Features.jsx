@@ -60,14 +60,16 @@ const Features = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg z-10"
+              className="bg-white hover:text-white hover:bg-[#031663] group transition-all duration-300 p-6 rounded-lg shadow-lg z-10 cursor-default"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <div className="text-5xl mb-4">{feature.icon}</div>
               <h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-700">{feature.description}</p>
+              <p className="text-gray-700 group-hover:text-slate-200">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </div>

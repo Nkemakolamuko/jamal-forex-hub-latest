@@ -7,18 +7,32 @@ import Testimonials from "./pages/Testimonial";
 import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import MessageUs from "./components/MessageUs";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PlanCheckout from "./components/PlanCheckout";
 
 function App() {
   return (
     <div className="scroll-smooth md:overflow-hidden">
-      <Header />
-      <Hero />
-      <Features />
-      <Pricing />
-      <Testimonials />
-      <Contact />
-      <Footer />
-      <MessageUs />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Hero />
+                <Features />
+                <Pricing />
+                <Testimonials />
+                <Contact />
+                <Footer />
+                <MessageUs />
+              </>
+            }
+          />
+          <Route path="/plan-checkout/:id" element={<PlanCheckout />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
