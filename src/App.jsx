@@ -12,7 +12,7 @@ import PlanCheckout from "./components/PlanCheckout";
 
 function App() {
   return (
-    <div className="scroll-smooth md:overflow-hidden">
+    <div className="scroll-smooth">
       <BrowserRouter>
         <Routes>
           <Route

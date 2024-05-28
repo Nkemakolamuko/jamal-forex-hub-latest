@@ -115,6 +115,10 @@
   font-family: poppins !important;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /* For the header links */
 .header {
   position: relative;
