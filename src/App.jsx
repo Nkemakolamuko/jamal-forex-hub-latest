@@ -19,7 +19,7 @@ function App() {
 
   return (
     <FormContext.Provider value={{ isFormVisible, setIsFormVisible }}>
-      <div className="scroll-smooth">
+      <div className="">
         <BrowserRouter>
           <Routes>
             <Route

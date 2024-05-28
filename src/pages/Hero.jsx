@@ -59,7 +59,7 @@ const Hero = () => {
           <motion.a
             onClick={openForm}
             href="#signup"
-            className="text-white px-32 md:px-16 py-3 rounded bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500"
+            className="text-white px-8 text-nowrap md:px-16 py-3 rounded bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
