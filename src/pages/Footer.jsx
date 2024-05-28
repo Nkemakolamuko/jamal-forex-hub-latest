@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import useInView from "../useInView";
 import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+import footer from "../assets/footer.gif";
 
 const Footer = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
@@ -9,12 +10,29 @@ const Footer = () => {
   return (
     <motion.footer
       ref={ref}
-      className="bg-gray-800 pt-8 text-sm text-white"
+      className="bg-gray-800 pt-8 text-sm text-white relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={isInView ? { scale: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="w-full absolute top-0"
+      >
+        <img
+          src={footer}
+          alt="Footer Image"
+          className="md:w-[400px] md:h-[400px] w-[200px] h-[200px] ml-auto"
+        />
+      </motion.div>
+      <motion.div
+        className="container mx-auto px-4 z-10 relative"
+        initial={{ scale: 0 }}
+        animate={isInView ? { scale: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
         {/* Quick Links */}
         <motion.div
           className="flex flex-wrap justify-between mb-8"
@@ -101,7 +119,7 @@ const Footer = () => {
             <FaInstagram className="w-6 h-6" />
           </a>
         </motion.div>
-      </div>
+      </motion.div>
       <div className="flex flex-col mx-auto w-full py-3 text-center text-sm border-t mt-2">
         <span>All Rights Reserved</span>
         <span>Jamal Forex Hub {new Date().getFullYear()}</span>

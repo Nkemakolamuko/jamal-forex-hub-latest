@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Header from "./pages/Header";
 import Hero from "./pages/Hero";
 import Features from "./pages/Features";
@@ -9,31 +9,41 @@ import Footer from "./pages/Footer";
 import MessageUs from "./components/MessageUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PlanCheckout from "./components/PlanCheckout";
+import SignUpForm from "./components/SignUpForm";
+
+export const FormContext = createContext(null);
 
 function App() {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const closeForm = () => setIsFormVisible(false);
+
   return (
-    <div className="scroll-smooth">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Hero />
-                <Features />
-                <Pricing />
-                <Testimonials />
-                <Contact />
-                <Footer />
-                <MessageUs />
-              </>
-            }
-          />
-          <Route path="/plan-checkout/:id" element={<PlanCheckout />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <FormContext.Provider value={{ isFormVisible, setIsFormVisible }}>
+      <div className="scroll-smooth">
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <Hero />
+                  <Features />
+                  <Pricing />
+                  <Testimonials />
+                  <Contact />
+                  <Footer />
+                  <MessageUs />
+                  {/* Sign Up Form Overlay */}
+                  <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
+                </>
+              }
+            />
+            <Route path="/plan-checkout/:id" element={<PlanCheckout />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </FormContext.Provider>
   );
 }
 
