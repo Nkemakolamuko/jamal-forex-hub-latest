@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import useInView from "../useInView";
 import { Link } from "react-scroll";
 import logo from "../assets/Candlestick.gif";
@@ -141,16 +141,18 @@ const Header = () => {
         </nav>
 
         {/* Call to Action Button */}
-        <motion.a
-          href="#signup"
-          onClick={openForm}
-          className="bg-[#071F7E] hover:bg-[#031663] text-white px-4 py-2 rounded hidden md:inline-block outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500"
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          Get Started
-        </motion.a>
+        <AnimatePresence>
+          <motion.a
+            href="#signup"
+            onClick={openForm}
+            className="bg-[#071F7E] hover:bg-[#031663] text-white px-4 py-2 rounded hidden md:inline-block outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            Get Started
+          </motion.a>
+        </AnimatePresence>
       </div>
 
       {/* Navigation Menu Small */}
@@ -159,7 +161,8 @@ const Header = () => {
           isOpen ? "block" : "hidden"
         }`}
         initial={{ opacity: 0, x: -50 }}
-        animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        animate={isOpen ? { opacity: 1, x: 0 } : {}}
+        exit={{ opacity: 0, x: -50 }}
         transition={{ duration: 0.5 }}
       >
         <Link

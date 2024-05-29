@@ -10,6 +10,7 @@ import MessageUs from "./components/MessageUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PlanCheckout from "./components/PlanCheckout";
 import SignUpForm from "./components/SignUpForm";
+import CookieConsent from "./components/AcceptCookies";
 
 export const FormContext = createContext(null);
 
@@ -36,6 +37,7 @@ function App() {
                   <MessageUs />
                   {/* Sign Up Form Overlay */}
                   <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
+                  <CookieConsent />
                 </>
               }
             />
