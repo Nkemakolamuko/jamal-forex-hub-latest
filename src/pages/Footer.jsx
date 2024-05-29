@@ -81,7 +81,7 @@ const Footer = () => {
         >
           <div className="w-full sm:w-1/2 lg:w-1/4 mb-4">
             <h3 className="text-xl font-bold mb-2">Contact Us</h3>
-            <p>Email: supportjfh@gmail.com</p>
+            <p>Email: jamalforexhub@gmail.com</p>
             <p>Phone: +234 7040876440</p>
             <p>Address: Apo Sunrise Gudu, Abuja</p>
           </div>

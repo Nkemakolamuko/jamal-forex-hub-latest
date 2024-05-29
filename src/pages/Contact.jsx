@@ -11,12 +11,23 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState("");
+  const [emailErr, setEmailErr] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!fname.trim() || !email.trim() || !msg.trim()) {
       setErr("All fields are required!");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setEmailErr("Valid email required!");
       return;
     }
 
@@ -42,6 +53,9 @@ const Contact = () => {
 
   useEffect(() => {
     setErr("");
+    if (email) {
+      setEmailErr(validateEmail(email) ? "" : "Valid email required");
+    }
   }, [fname, email, msg]);
 
   return (
@@ -121,6 +135,7 @@ const Contact = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            <p className="text-rose-500 text-sm text-start">{emailErr}</p>
           </div>
           <div className="mb-4">
             <label className="block text-slate-700 text-left" htmlFor="message">
@@ -154,7 +169,7 @@ const Contact = () => {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p>Email: supportjfh@gmail.com</p>
+          <p>Email: jamalforexhub@gmail.com</p>
           <p>Phone: +234 7040876440</p>
           <p>Address: Apo Sunrise Gudu, Abuja</p>
         </motion.div>
