@@ -18,14 +18,14 @@ const Hero = () => {
     <motion.section
       id="home"
       ref={ref}
-      className="relative bg-cover bg-center h-screen flex justify-center items-center"
+      className="relative bg-cover bg-center h-screen flex justify-center items-center pt-16 md:pt-0"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
     >
       <LottieBackground />
       <div className="absolute inset-0 bg-gradient-to-t from-[#000414] to-[#010e42] opacity-90"></div>
-      <div className="container mx-auto px-4 h-full flex flex-col md:flex-row pt-36 md:pt-0 justify-center items-center text-white relative">
+      <div className="container mx-auto px-4 h-full flex flex-col md:flex-row pt-36 md:pt-8 justify-center items-center text-white relative">
         {/* Left Content */}
         <motion.div
           className="md:w-1/2 w-full"
