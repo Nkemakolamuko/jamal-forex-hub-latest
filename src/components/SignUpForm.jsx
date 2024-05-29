@@ -5,6 +5,7 @@ import { FaInfo } from "react-icons/fa6";
 const SignUpForm = ({ isVisible, onClose }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     whatsapp: "",
@@ -30,6 +31,8 @@ const SignUpForm = ({ isVisible, onClose }) => {
       return;
     }
 
+    setLoading(true);
+
     try {
       const response = await fetch("https://formspree.io/f/xaygjagd", {
         method: "POST",
@@ -51,6 +54,8 @@ const SignUpForm = ({ isVisible, onClose }) => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -116,7 +121,7 @@ const SignUpForm = ({ isVisible, onClose }) => {
             </label>
             <input
               className="w-full px-3 py-2 border-2 rounded-lg outline-none"
-              type="text"
+              type="tel"
               id="whatsapp"
               name="whatsapp"
               value={formData.whatsapp}
@@ -162,8 +167,9 @@ const SignUpForm = ({ isVisible, onClose }) => {
           <button
             type="submit"
             className=" bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500 text-white px-4 py-2 rounded transition-all duration-300"
+            disabled={loading}
           >
-            Submit
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </form>
         <p className="text-sm text-center mt-4">

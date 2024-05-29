@@ -33,7 +33,7 @@ function App() {
                 <Testimonials />
                 <Contact />
                 <Footer />
-                {/* <MessageUs /> */}
+                <MessageUs />
                 {/* Sign Up Form Overlay */}
                 <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
                 <CookieConsent />
