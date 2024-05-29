@@ -8,7 +8,7 @@ const CookieConsent = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
-    }, 20000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
