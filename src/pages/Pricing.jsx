@@ -38,7 +38,17 @@ const Pricing = () => {
               transition={{ duration: 0.5, delay: id * 0.2 }}
             >
               <h3 className="text-2xl font-semibold mb-4">{name}</h3>
-              <p className="text-3xl font-bold mb-4">{price}</p>
+              <p className="text-3xl font-bold">{price}</p>
+              <span className="text-sm poppins-light mb-4">
+                ( ₦{" "}
+                {price
+                  .split("$")
+                  .join("")
+                  .split("/")
+                  .join("")
+                  .split("month")[0] * 1300}{" "}
+                @ ₦1,300 rate)
+              </span>
               <ul className="mb-6 text-left">
                 {features.map((feature, i) => (
                   <li key={i} className="mb-2">

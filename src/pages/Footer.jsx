@@ -35,7 +35,7 @@ const Footer = () => {
       >
         {/* Quick Links */}
         <motion.div
-          className="flex flex-wrap justify-between mb-8"
+          className="flex flex-wrap justify-between mb-8 md:w-1/2"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
@@ -70,6 +70,21 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          <siv className="flex flex-col md:items-center gap-2 md:border-b">
+            <h2 className="text-xl font-bold ">Jamal Forex Hub</h2>
+
+            <p className="font-semibold mb-2">Home of young millionaires.</p>
+
+            <div className="flex items-center gap-2">
+              <span className="p-2 rounded  bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset outline-blue-300 hover:outline-blue-500 text-white cursor-pointer">
+                Buy Courses
+              </span>
+              <span className="p-2 rounded  bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset outline-blue-300 hover:outline-blue-500 text-white cursor-pointer">
+                Buy Products
+              </span>
+            </div>
+          </siv>
         </motion.div>
 
         {/* Company Contact Details */}

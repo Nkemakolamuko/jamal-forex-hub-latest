@@ -67,7 +67,7 @@ const Contact = () => {
       transition={{ duration: 0.5 }}
       id="contact"
     >
-      <FaEnvelope className="w-60 h-60 opacity-30 text-blue-300 absolute top-[50%] left-0 -rotate-12 hidden md:flex" />
+      <FaEnvelope className="w-60 h-60 opacity-30 text-blue-300 absolute top-[50%] left-0 -rotate-12 hidden md:flex contact" />
       <FaEnvelope className="w-64 h-64 opacity-30 text-blue-300 absolute top-0 left-[50%] rotate-12 hidden md:flex" />
       <FaEnvelope className="w-28 h-28 opacity-30 text-blue-300 absolute top-[50%] right-0 -rotate-12" />
       <div className="container mx-auto px-4 text-center">

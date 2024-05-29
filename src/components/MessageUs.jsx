@@ -21,7 +21,7 @@ const MessageUs = () => {
           onClick={() => setChat(true)}
           className="p-2 relative overflow-hidden"
         >
-          <FaRegBell className="w-5 h-5" />
+          <FaRegBell className="w-5 h-5 contact" />
           <span className="text-[9px] rounded-full text-white bg-rose-500 absolute top-[2px] right-0 py-[3px] px-2 opacity-90">
             1
           </span>
@@ -31,7 +31,7 @@ const MessageUs = () => {
         <motion.a
           href="https://www.whatsapp.com"
           target="_blank"
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="text-sm bg-green-500 p-2 rounded-r"

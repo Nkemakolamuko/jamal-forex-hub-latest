@@ -29,8 +29,8 @@ function App() {
                 <Header />
                 <Hero />
                 <Features />
-                <Pricing />
                 <Testimonials />
+                <Pricing />
                 <Contact />
                 <Footer />
                 <MessageUs />

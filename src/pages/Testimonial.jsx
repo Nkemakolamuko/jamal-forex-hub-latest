@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import user from "../assets/user.jpg";
 import { FaRegBell } from "react-icons/fa";
+import { FaMicrophone } from "react-icons/fa6";
 
 const testimonials = [
   {
@@ -49,8 +50,8 @@ const Testimonials = () => {
       transition={{ duration: 0.5 }}
       id="testimonials"
     >
-      <FaRegBell className="w-52 h-52 opacity-30 text-blue-500 absolute top-0 left-0 -rotate-12" />
-      <FaRegBell className="w-36 h-36 opacity-30 text-blue-500 absolute bottom-0 right-0 rotate-12" />
+      <FaMicrophone className="w-52 h-52 opacity-30 text-blue-500 absolute top-0 left-0 -rotate-12 contact" />
+      <FaRegBell className="w-36 h-36 opacity-30 text-blue-500 absolute bottom-0 right-0 rotate-12 contact" />
       <div className="container mx-auto px-4 text-center">
         {/* Section Introduction */}
         <motion.h2

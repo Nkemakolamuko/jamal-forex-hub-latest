@@ -169,3 +169,20 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
+
+/* Contact Bounce */
+.contact {
+  animation: bouncingIcons 0.8s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.4, 0.06, 1, 0.6);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bouncingIcons {
+  from {
+    transform: translateX(0, 0, 0);
+  }
+  to {
+    transform: translateX(10%);
+  }
+}
