@@ -43,7 +43,7 @@ const Testimonials = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-blue-100 relative"
+      className="py-16 bg-blue-100 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}

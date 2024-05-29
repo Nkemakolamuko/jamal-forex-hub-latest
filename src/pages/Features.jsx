@@ -36,7 +36,7 @@ const Features = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-gray-100 relative"
+      className="py-16 bg-gray-100 overflow-hidden relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}

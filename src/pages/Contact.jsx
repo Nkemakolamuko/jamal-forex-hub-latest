@@ -47,7 +47,7 @@ const Contact = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-white relative"
+      className="py-16 bg-white overflow-hidden relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}

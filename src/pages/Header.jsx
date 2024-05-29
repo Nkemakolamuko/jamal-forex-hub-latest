@@ -21,12 +21,12 @@ const Header = () => {
   return (
     <motion.header
       ref={ref}
-      className="bg-white fixed w-full top-0 z-50 shadow-md pb-2 md:pb-0"
+      className="bg-white sticky top-0 z-50 shadow-md pb-2 md:pb-0"
       initial={{ opacity: 0, y: -50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 md:py-2 py-2 flex justify-between items-center">
+      <div className="px-4 md:py-2 py-2 flex justify-between items-center">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.2, rotate: 360 }}

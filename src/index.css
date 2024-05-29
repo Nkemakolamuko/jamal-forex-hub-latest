@@ -113,11 +113,10 @@
 
 * {
   font-family: poppins !important;
-  /* overflow: hidden !important; */
 }
 
 body {
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
 }
 
 /* For the header links */

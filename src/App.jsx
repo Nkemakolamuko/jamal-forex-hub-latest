@@ -20,31 +20,29 @@ function App() {
 
   return (
     <FormContext.Provider value={{ isFormVisible, setIsFormVisible }}>
-      <div className="">
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Header />
-                  <Hero />
-                  <Features />
-                  <Pricing />
-                  <Testimonials />
-                  <Contact />
-                  <Footer />
-                  <MessageUs />
-                  {/* Sign Up Form Overlay */}
-                  <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
-                  <CookieConsent />
-                </>
-              }
-            />
-            <Route path="/plan-checkout/:id" element={<PlanCheckout />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Hero />
+                <Features />
+                <Pricing />
+                <Testimonials />
+                <Contact />
+                <Footer />
+                {/* <MessageUs /> */}
+                {/* Sign Up Form Overlay */}
+                <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
+                <CookieConsent />
+              </>
+            }
+          />
+          <Route path="/plan-checkout/:id" element={<PlanCheckout />} />
+        </Routes>
+      </BrowserRouter>
     </FormContext.Provider>
   );
 }

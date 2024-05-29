@@ -10,7 +10,7 @@ const Pricing = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-white"
+      className="py-16 bg-white overflow-hidden"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
