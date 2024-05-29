@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaInfo } from "react-icons/fa6";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const SignUpForm = ({ isVisible, onClose }) => {
   const [success, setSuccess] = useState(false);
+  const [valid, setValid] = useState(true);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,6 +19,10 @@ const SignUpForm = ({ isVisible, onClose }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handlePhoneChange = (value) => {
+    setFormData({ ...formData, whatsapp: value });
   };
 
   const handleSubmit = async (e) => {
@@ -119,15 +126,35 @@ const SignUpForm = ({ isVisible, onClose }) => {
             <label className="block text-gray-700 text-left" htmlFor="whatsapp">
               WhatsApp Number
             </label>
-            <input
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none"
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              value={formData.whatsapp}
-              onChange={handleChange}
-              required
-            />
+            <div className="w-full border-2 rounded-lg outline-none">
+              <PhoneInput
+                country={"ng"}
+                inputProps={{
+                  name: "phone",
+                  required: true,
+                  autoFocus: true,
+                }}
+                enableSearch={true}
+                searchPlaceholder="Search Country"
+                searchNotFound="No entry found"
+                autocompleteSearch={true}
+                inputStyle={{
+                  border: "none",
+                  backgroundColor: "inherit",
+                }}
+                containerStyle={{
+                  border: "none",
+                  paddingTop: "4px",
+                  paddingBottom: "4px",
+                }}
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                value={formData.whatsapp}
+                onChange={handlePhoneChange}
+                required
+              />
+            </div>
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-left" htmlFor="location">
@@ -166,7 +193,7 @@ const SignUpForm = ({ isVisible, onClose }) => {
           </div>
           <button
             type="submit"
-            className=" bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500 text-white px-4 py-2 rounded transition-all duration-300"
+            className="bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500 text-white px-4 py-2 rounded transition-all duration-300"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Submit"}

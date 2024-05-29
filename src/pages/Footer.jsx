@@ -71,7 +71,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <siv className="flex flex-col md:items-center gap-2 md:border-b">
+          <div className="flex flex-col md:items-center gap-2 md:border-b">
             <h2 className="text-xl font-bold ">Jamal Forex Hub</h2>
 
             <p className="font-semibold mb-2">Home of young millionaires.</p>
@@ -84,7 +84,7 @@ const Footer = () => {
                 Buy Products
               </span>
             </div>
-          </siv>
+          </div>
         </motion.div>
 
         {/* Company Contact Details */}
@@ -137,7 +137,7 @@ const Footer = () => {
       </motion.div>
       <div className="flex flex-col mx-auto w-full py-3 text-center text-sm border-t mt-2">
         <span>All Rights Reserved</span>
-        <span>Jamal Forex Hub {new Date().getFullYear()}</span>
+        <span>Jamal Forex Hub © {new Date().getFullYear()}</span>
       </div>
     </motion.footer>
   );
