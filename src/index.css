@@ -165,24 +165,7 @@ body {
   background: #007bff;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 20px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-.btnA:hover {
-  background: #0056b3;
-}
-
-.btnB {
-  background: #ff0037;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.btnB:hover {
-  background: #ff0037;
 }

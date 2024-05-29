@@ -1,6 +1,7 @@
 // CookieConsent.js
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaTimes } from "react-icons/fa";
 
 const CookieConsent = () => {
   const [show, setShow] = useState(false);
@@ -29,15 +30,24 @@ const CookieConsent = () => {
           className="cookie-consent outline outline-slate-400 outline-offset-1"
         >
           <div className="cookie-content">
-            <p>
-              We use cookies to improve your experience. By using our site, you
-              accept our use of cookies.
-            </p>
+            <div className="full flex justify-between">
+              <p className="w-[90%]">
+                We use cookies to improve your experience, security, and other
+                business use. By clicking "Accept", you agree to the use of
+                cookies.
+              </p>
+              <p className="rounded-full hover:bg-[#3939ff] cursor-pointer h-fit transition-all duration-300">
+                <FaTimes
+                  className="w-6 h-6 text-slate-200"
+                  onClick={handleAccept}
+                />
+              </p>
+            </div>
             <div className="flex items-center gap-2 justify-center">
-              <button className="btnB rounded" onClick={handleAccept}>
-                Decline
-              </button>
-              <button className="btnA rounded" onClick={handleAccept}>
+              <button
+                className="btnA rounded w-[90%] mx-auto outline outline-offset-2 font-medium"
+                onClick={handleAccept}
+              >
                 Accept
               </button>
             </div>
