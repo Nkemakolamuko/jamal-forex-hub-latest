@@ -133,6 +133,7 @@ const SignUpForm = ({ isVisible, onClose }) => {
                   name: "phone",
                   required: true,
                   autoFocus: true,
+                  width: "100%",
                 }}
                 enableSearch={true}
                 searchPlaceholder="Search Country"
@@ -141,11 +142,13 @@ const SignUpForm = ({ isVisible, onClose }) => {
                 inputStyle={{
                   border: "none",
                   backgroundColor: "inherit",
+                  width: "100%",
+                  paddingTop: "20px",
+                  paddingBottom: "20px",
                 }}
                 containerStyle={{
                   border: "none",
-                  paddingTop: "4px",
-                  paddingBottom: "4px",
+                  width: "100%",
                 }}
                 type="tel"
                 id="whatsapp"
