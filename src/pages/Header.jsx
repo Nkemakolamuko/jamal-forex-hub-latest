@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useInView from "../useInView";
 import { Link } from "react-scroll";
@@ -6,22 +6,32 @@ import logo from "../assets/Candlestick.gif";
 import { FormContext } from "../App";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("Home");
+  const {
+    isFormVisible,
+    setIsFormVisible,
+    theme,
+    toggleTheme,
+    setIsOpen,
+    isOpen,
+  } = useContext(FormContext);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const [ref, isInView] = useInView({ threshold: 0.1 });
 
-  const { isFormVisible, setIsFormVisible } = useContext(FormContext);
-
   const openForm = () => setIsFormVisible(true);
 
   return (
     <motion.header
       ref={ref}
-      className="bg-white sticky top-0 z-50 shadow-md pb-2 md:pb-0"
+      className={`sticky top-0 z-50 shadow-md pb-2 md:pb-0 ${
+        theme === "dark"
+          ? "bg-blue-950 border-b text-slate-200"
+          : "bg-white text-slate-800"
+      }`}
       // initial={{ opacity: 0, y: -50 }}
       // animate={isInView ? { opacity: 1, y: 0 } : {}}
       // transition={{ duration: 0.5 }}
@@ -45,7 +55,9 @@ const Header = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-gray-700 focus:outline-none"
+            className={`focus:outline-none ${
+              theme === "dark" ? "text-slate-200" : "text-gray-700"
+            }`}
           >
             {isOpen ? (
               <svg
@@ -154,94 +166,6 @@ const Header = () => {
           </motion.a>
         </AnimatePresence>
       </div>
-
-      {/* Navigation Menu Small */}
-      <motion.nav
-        className={`absolute z-[99] w-[80%] bg-white top-0 left-0 h-screen shadow-2xl ${
-          isOpen ? "block" : "hidden"
-        }`}
-        initial={{ opacity: 0, x: -50 }}
-        animate={isOpen ? { opacity: 1, x: 0 } : {}}
-        exit={{ opacity: 0, x: -50 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Link
-          to="home"
-          smooth={true}
-          duration={500}
-          className="text-gray-700 hover:text-blue-500 active:text-blue-500 block py-2 hover:bg-slate-100 active:bg-slate-100 transition-all duration-300 px-4 md:inline-block md:mt-0 font-bold text-xl cursor-pointer"
-          onClick={toggleMenu}
-        >
-          Jamal Forex Hub
-        </Link>
-        <Link
-          to="home"
-          smooth={true}
-          duration={500}
-          className="text-gray-700 hover:text-blue-500 active:text-blue-500 block py-2 hover:bg-slate-100 active:bg-slate-100 transition-all duration-300 px-4 md:inline-block md:mt-0 border-t cursor-pointer"
-          onClick={toggleMenu}
-        >
-          Home
-        </Link>
-        <Link
-          to="features"
-          smooth={true}
-          duration={500}
-          className="text-gray-700 hover:text-blue-500 active:text-blue-500 block py-2 hover:bg-slate-100 active:bg-slate-100 transition-all duration-300 px-4 md:inline-block md:mt-0 cursor-pointer"
-          onClick={toggleMenu}
-        >
-          Features
-        </Link>
-        <Link
-          to="pricing"
-          smooth={true}
-          duration={500}
-          className="text-gray-700 hover:text-blue-500 active:text-blue-500 block py-2 hover:bg-slate-100 active:bg-slate-100 transition-all duration-300 px-4 md:inline-block md:mt-0 cursor-pointer"
-          onClick={toggleMenu}
-        >
-          Pricing
-        </Link>
-        <Link
-          to="testimonials"
-          smooth={true}
-          duration={500}
-          className="text-gray-700 hover:text-blue-500 active:text-blue-500 block py-2 hover:bg-slate-100 active:bg-slate-100 transition-all duration-300 px-4 md:inline-block md:mt-0 cursor-pointer"
-          onClick={toggleMenu}
-        >
-          Testimonials
-        </Link>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={500}
-          className="text-gray-700 hover:text-blue-500 active:text-blue-500 block py-2 hover:bg-slate-100 active:bg-slate-100 transition-all duration-300 px-4 md:inline-block md:mt-0 border-b cursor-pointer"
-          onClick={toggleMenu}
-        >
-          Contact
-        </Link>
-        <motion.a
-          href="#signup"
-          onClick={openForm}
-          className="text-white bg-[#071F7E] hover:bg-[#031663] px-4 py-2 mt-4 w-[80%] rounded mx-auto block md:hidden text-center shadow-2xl"
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          Get Started
-        </motion.a>
-      </motion.nav>
-
-      {/* Call to Action Button for small screens */}
-      <motion.a
-        href="#signup"
-        onClick={openForm}
-        className="text-white  bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500 px-4 py-2 block md:hidden text-center shadow-2xl w-[95%] mx-auto rounded"
-        initial={{ opacity: 0, x: 50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.5 }}
-      >
-        Get Started
-      </motion.a>
     </motion.header>
   );
 };

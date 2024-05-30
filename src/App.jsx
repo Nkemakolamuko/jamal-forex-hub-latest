@@ -12,15 +12,31 @@ import PlanCheckout from "./components/PlanCheckout";
 import SignUpForm from "./components/SignUpForm";
 import CookieConsent from "./components/AcceptCookies";
 import Headroom from "react-headroom";
+import SidebarSmall from "./components/SidebarSmall";
 
 export const FormContext = createContext(null);
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const closeForm = () => setIsFormVisible(false);
+  const [theme, setTheme] = useState("light");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   return (
-    <FormContext.Provider value={{ isFormVisible, setIsFormVisible }}>
+    <FormContext.Provider
+      value={{
+        isFormVisible,
+        setIsFormVisible,
+        theme,
+        toggleTheme,
+        isOpen,
+        setIsOpen,
+      }}
+    >
       <BrowserRouter>
         <Routes>
           <Route
@@ -40,6 +56,8 @@ function App() {
                 {/* Sign Up Form Overlay */}
                 <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
                 <CookieConsent />
+                {/* Sidebar */}
+                <SidebarSmall />
               </>
             }
           />
