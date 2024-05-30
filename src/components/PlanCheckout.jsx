@@ -26,7 +26,7 @@ const PlanCheckout = () => {
         transition={{ duration: 0.5 }}
         className="container mx-auto p-4 md:max-w-[600px] border rounded shadow flex flex-col gap-2 bg-gray-50"
       >
-        <p className="text-green-500 text-sm poppins-regular-italic">
+        <p className="text-green-500 text-sm poppins-regular">
           Congratulations in advance on the decision you're about to make.
         </p>
         <p className="poppins-bold text-lg">Plan: {foundPrice.name}</p>
@@ -79,7 +79,7 @@ const PlanCheckout = () => {
               </span>
               <Copied
                 value="jsdnjvbhsdbvbsdbvhsdhvsudbvsdvahsdNJNSjJNJNjnj"
-                copy={"copy address"}
+                copy={"copy"}
               />
             </motion.p>
           )}
