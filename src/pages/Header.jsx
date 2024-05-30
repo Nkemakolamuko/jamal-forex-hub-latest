@@ -22,9 +22,9 @@ const Header = () => {
     <motion.header
       ref={ref}
       className="bg-white sticky top-0 z-50 shadow-md pb-2 md:pb-0"
-      initial={{ opacity: 0, y: -50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
+      // initial={{ opacity: 0, y: -50 }}
+      // animate={isInView ? { opacity: 1, y: 0 } : {}}
+      // transition={{ duration: 0.5 }}
     >
       <div className="px-4 md:py-2 py-2 flex justify-between items-center">
         {/* Logo */}
@@ -88,7 +88,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
-              active === "Home" ? "bg-[#0000f1]/20" : ""
+              active === "Home" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Home")}
           >
@@ -99,7 +99,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
-              active === "Features" ? "bg-[#0000f1]/20" : ""
+              active === "Features" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Features")}
           >
@@ -110,7 +110,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
-              active === "Pricing" ? "bg-[#0000f1]/20" : ""
+              active === "Pricing" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Pricing")}
           >
@@ -121,7 +121,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
-              active === "Testimonials" ? "bg-[#0000f1]/20" : ""
+              active === "Testimonials" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Testimonials")}
           >
@@ -132,7 +132,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
-              active === "Contact" ? "bg-[#0000f1]/20" : ""
+              active === "Contact" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Contact")}
           >

@@ -43,7 +43,7 @@ const Features = () => {
       id="features"
     >
       <div className="container mx-auto px-4 text-center">
-        <FaNairaSign className="w-52 h-52 opacity-30 text-blue-500 absolute top-0 left-0 -rotate-12" />
+        <FaNairaSign className="w-52 h-52 opacity-10 text-blue-500 absolute top-0 left-0 -rotate-12" />
         <FaNairaSign className="w-60 h-60 opacity-30 text-blue-500 absolute bottom-0 right-0 -rotate-12" />
         {/* Section Introduction */}
         <motion.h2
@@ -60,7 +60,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-white hover:text-white hover:bg-[#031663] group transition-all duration-300 p-6 rounded-lg shadow-lg z-10 cursor-default"
+              className="bg-white hover:text-white hover:bg-[#031663] group transition-all duration-300 p-6 rounded-lg shadow-lg cursor-default"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.2 }}

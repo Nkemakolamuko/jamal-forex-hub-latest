@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PlanCheckout from "./components/PlanCheckout";
 import SignUpForm from "./components/SignUpForm";
 import CookieConsent from "./components/AcceptCookies";
+import Headroom from "react-headroom";
 
 export const FormContext = createContext(null);
 
@@ -26,7 +27,9 @@ function App() {
             path="/"
             element={
               <>
-                <Header />
+                <Headroom className="z-[999]">
+                  <Header />
+                </Headroom>
                 <Hero />
                 <Features />
                 <Testimonials />
