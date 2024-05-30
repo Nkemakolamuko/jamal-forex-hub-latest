@@ -166,6 +166,16 @@ const Header = () => {
           </motion.a>
         </AnimatePresence>
       </div>
+      <motion.a
+        href="#signup"
+        onClick={openForm}
+        className="text-white  bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500 px-4 py-2 block md:hidden text-center shadow-2xl w-[95%] mx-auto rounded"
+        initial={{ opacity: 0, x: 50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        Get Started
+      </motion.a>
     </motion.header>
   );
 };
