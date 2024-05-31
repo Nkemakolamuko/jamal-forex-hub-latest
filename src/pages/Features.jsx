@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import useInView from "../useInView";
-import { FaCartShopping, FaNairaSign, FaShop, FaUsers } from "react-icons/fa6";
+import { FaNairaSign } from "react-icons/fa6";
+import { FormContext } from "../App";
 
 const features = [
   {
@@ -32,11 +33,14 @@ const features = [
 
 const Features = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
+  const { theme } = useContext(FormContext);
 
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-gray-100 overflow-hidden relative"
+      className={`py-16 overflow-hidden relative ${
+        theme === "dark" ? "bg-[#031663]" : "bg-gray-100"
+      }`}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
@@ -47,7 +51,9 @@ const Features = () => {
         <FaNairaSign className="w-60 h-60 opacity-30 text-blue-500 absolute bottom-0 right-0 -rotate-12" />
         {/* Section Introduction */}
         <motion.h2
-          className="text-2xl md:text-4xl font-bold mb-8"
+          className={`text-2xl md:text-4xl font-bold mb-8 ${
+            theme === "dark" ? "text-white" : "text-black"
+          }`}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
@@ -60,14 +66,24 @@ const Features = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-white hover:text-white hover:bg-[#031663] group transition-all duration-300 p-6 rounded-lg shadow-lg cursor-default"
+              className={`transition-all duration-300 p-6 rounded-lg shadow-lg cursor-default ${
+                theme === "dark"
+                  ? "bg-[#040d2e] hover:text-white text-gray-300 hover:bg-[#040d2e]"
+                  : "bg-white hover:text-white text-gray-700 hover:bg-[#031663]"
+              }`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <div className="text-5xl mb-4">{feature.icon}</div>
               <h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-700 group-hover:text-slate-200">
+              <p
+                className={`${
+                  theme === "dark"
+                    ? "text-gray-300 group-hover:text-slate-200"
+                    : "text-gray-700 group-hover:!text-slate-200"
+                }`}
+              >
                 {feature.description}
               </p>
             </motion.div>

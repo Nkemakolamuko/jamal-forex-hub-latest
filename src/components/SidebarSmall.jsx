@@ -133,8 +133,8 @@ const SidebarSmall = () => {
                     onClick={toggleTheme}
                     className={`my-2 w-fit py-2 px-8 rounded ${
                       theme === "dark"
-                        ? "bg-gray-700 text-white border outline outline-offset-1 outline-black/70"
-                        : "bg-gray-200 text-black outline outline-offset-1 outline-black/70 border border-black/70 rounded"
+                        ? "bg-white text-[#040d2e] border border-[#040d2e] outline outline-offset-1 outline-white"
+                        : "bg-[#040d2e] text-white outline outline-offset-1 outline-[#040d2e]/70 border border-[#040d2e]/70 rounded"
                     }`}
                   >
                     {theme === "dark" ? "Light Theme" : "Dark Theme"}

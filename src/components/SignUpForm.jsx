@@ -4,7 +4,7 @@ import { FaInfo } from "react-icons/fa6";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-const SignUpForm = ({ isVisible, onClose }) => {
+const SignUpForm = ({ isVisible, onClose, theme }) => {
   const [success, setSuccess] = useState(false);
   const [valid, setValid] = useState(true);
   const [error, setError] = useState(false);
@@ -83,7 +83,9 @@ const SignUpForm = ({ isVisible, onClose }) => {
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-auto relative"
+        className={`p-6 rounded-lg shadow-lg w-full max-w-md mx-auto relative ${
+          theme === "dark" ? "bg-[#01018b] text-gray-300" : "bg-white"
+        }`}
         initial={{ y: -50 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -109,11 +111,22 @@ const SignUpForm = ({ isVisible, onClose }) => {
         <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
         <form onSubmit={handleSubmit} className="z-[999]">
           <div className="mb-4">
-            <label className="block text-gray-700 text-left" htmlFor="name">
+            <label
+              className={`${
+                theme === "dark"
+                  ? "text-slate-200"
+                  : "block text-gray-700 text-left"
+              }`}
+              htmlFor="name"
+            >
               Name
             </label>
             <input
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none"
+              className={`w-full px-3 py-2 border-2 rounded-lg outline-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#040d2e] border-[#040d2e]"
+                  : "text-black"
+              }`}
               type="text"
               id="name"
               name="name"
@@ -123,10 +136,23 @@ const SignUpForm = ({ isVisible, onClose }) => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-left" htmlFor="whatsapp">
+            <label
+              className={`${
+                theme === "dark"
+                  ? "text-slate-200"
+                  : "block text-gray-700 text-left"
+              }`}
+              htmlFor="whatsapp"
+            >
               WhatsApp Number
             </label>
-            <div className="w-full border-2 rounded-lg outline-none">
+            <div
+              className={`w-full border-2 rounded-lg outline-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#040d2e] border-[#040d2e]"
+                  : "text-black"
+              }`}
+            >
               <PhoneInput
                 country={"ng"}
                 inputProps={{
@@ -160,11 +186,22 @@ const SignUpForm = ({ isVisible, onClose }) => {
             </div>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-left" htmlFor="location">
+            <label
+              className={`${
+                theme === "dark"
+                  ? "text-slate-200"
+                  : "block text-gray-700 text-left"
+              }`}
+              htmlFor="location"
+            >
               Location
             </label>
             <input
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none"
+              className={`w-full px-3 py-2 border-2 rounded-lg outline-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#040d2e] border-[#040d2e]"
+                  : "text-black"
+              }`}
               type="text"
               id="location"
               name="location"
@@ -175,13 +212,21 @@ const SignUpForm = ({ isVisible, onClose }) => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-left"
+              className={`${
+                theme === "dark"
+                  ? "text-slate-200"
+                  : "block text-gray-700 text-left"
+              }`}
               htmlFor="experience"
             >
               Trading Experience Level
             </label>
             <select
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none"
+              className={`w-full px-3 py-2 border-2 rounded-lg outline-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#040d2e] border-[#040d2e]"
+                  : "text-black"
+              }`}
               id="experience"
               name="experience"
               value={formData.experience}

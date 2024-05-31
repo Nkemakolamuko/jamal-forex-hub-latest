@@ -29,7 +29,7 @@ const Header = () => {
       ref={ref}
       className={`sticky top-0 z-50 shadow-md pb-2 md:pb-0 ${
         theme === "dark"
-          ? "bg-blue-950 border-b text-slate-200"
+          ? "bg-[#01018b] border-b text-slate-200"
           : "bg-white text-slate-800"
       }`}
       // initial={{ opacity: 0, y: -50 }}

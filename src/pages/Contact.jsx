@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import useInView from "../useInView";
 import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa6";
 import axios from "axios";
+import { FormContext } from "../App";
 
 const Contact = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
@@ -12,7 +13,9 @@ const Contact = () => {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { theme } = useContext(FormContext);
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,6 +34,8 @@ const Contact = () => {
       return;
     }
 
+    setLoading(true);
+
     try {
       await axios.post("https://formspree.io/f/xaygjagd", {
         name: fname,
@@ -48,6 +53,8 @@ const Contact = () => {
       setErr(
         "There was an error sending your message. Please try again later."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -61,18 +68,34 @@ const Contact = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-white overflow-hidden relative"
+      className={`py-16 overflow-hidden relative ${
+        theme === "dark" ? "bg-[#040d2e] text-gray-300" : "bg-white"
+      }`}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
       id="contact"
     >
-      <FaEnvelope className="w-60 h-60 opacity-30 text-blue-300 absolute top-[50%] left-0 -rotate-12 hidden md:flex contact" />
-      <FaEnvelope className="w-64 h-64 opacity-30 text-blue-300 absolute top-0 left-[50%] rotate-12 hidden md:flex" />
-      <FaEnvelope className="w-28 h-28 opacity-30 text-blue-300 absolute top-[50%] right-0 -rotate-12" />
+      <FaEnvelope
+        className={`w-60 h-60 opacity-30 ${
+          theme === "dark" ? "text-blue-500" : "text-blue-300"
+        } absolute top-[50%] left-0 -rotate-12 hidden md:flex contact`}
+      />
+      <FaEnvelope
+        className={`w-64 h-64 opacity-30 ${
+          theme === "dark" ? "text-blue-500" : "text-blue-300"
+        } absolute top-0 left-[50%] rotate-12 hidden md:flex`}
+      />
+      <FaEnvelope
+        className={`w-28 h-28 opacity-30 ${
+          theme === "dark" ? "text-blue-500" : "text-blue-300"
+        } absolute top-[50%] right-0 -rotate-12`}
+      />
       <div className="container mx-auto px-4 text-center">
         <motion.h2
-          className="text-2xl md:text-4xl font-bold mb-8"
+          className={`text-2xl md:text-4xl font-bold mb-8 ${
+            theme === "dark" ? "text-white" : "text-black"
+          }`}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
@@ -107,11 +130,20 @@ const Contact = () => {
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
-            <label className="block text-slate-700 text-left" htmlFor="name">
+            <label
+              className={`block text-left ${
+                theme === "dark" ? "text-gray-300" : "text-slate-700"
+              }`}
+              htmlFor="name"
+            >
               Name
             </label>
             <input
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none text-black"
+              className={`w-full px-3 py-2 border-2 rounded-lg outline-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#01018b] border-[#01018b]"
+                  : "text-black"
+              }`}
               type="text"
               id="name"
               name="name"
@@ -122,11 +154,20 @@ const Contact = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-slate-700 text-left" htmlFor="email">
+            <label
+              className={`block text-left ${
+                theme === "dark" ? "text-gray-300" : "text-slate-700"
+              }`}
+              htmlFor="email"
+            >
               Email
             </label>
             <input
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none text-black"
+              className={`w-full px-3 py-2 border-2 rounded-lg outline-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#01018b] border-[#01018b]"
+                  : "text-black"
+              }`}
               type="email"
               id="email"
               name="email"
@@ -138,11 +179,20 @@ const Contact = () => {
             <p className="text-rose-500 text-sm text-start">{emailErr}</p>
           </div>
           <div className="mb-4">
-            <label className="block text-slate-700 text-left" htmlFor="message">
+            <label
+              className={`block text-left ${
+                theme === "dark" ? "text-gray-300" : "text-slate-700"
+              }`}
+              htmlFor="message"
+            >
               Message
             </label>
             <textarea
-              className="w-full px-3 py-2 border-2 rounded-lg outline-none text-black resize-none"
+              className={`w-full px-3 py-2 border-2 rounded-lg outline-none resize-none ${
+                theme === "dark"
+                  ? "text-gray-300 bg-[#01018b] border-[#01018b]"
+                  : "text-black"
+              }`}
               id="message"
               name="message"
               rows="5"
@@ -154,12 +204,16 @@ const Contact = () => {
           </div>
           <motion.button
             type="submit"
-            onClick={handleSubmit}
-            className="text-white px-4 py-2 rounded bg-[#071F7E] hover:bg-[#031663] outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500"
+            className={`text-white px-4 py-2 rounded ${
+              theme === "dark"
+                ? "bg-blue-900 hover:bg-blue-800"
+                : "bg-[#071F7E] hover:bg-[#031663]"
+            } outline border border-black outline-offset-2 outline-blue-300 hover:outline-blue-500`}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
+            disabled={loading}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </motion.button>
         </motion.form>
 

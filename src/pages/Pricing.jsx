@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import useInView from "../useInView";
 import pricingPlansDb from "../db/pricingPlansDb";
+import { FormContext } from "../App";
 
 const Pricing = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
+  const { theme } = useContext(FormContext);
 
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-white overflow-hidden"
+      className={`py-16 overflow-hidden ${
+        theme === "dark" ? "bg-[#031663]" : "bg-white"
+      }`}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
@@ -19,7 +23,9 @@ const Pricing = () => {
       <div className="container mx-auto px-4 text-center">
         {/* Section Introduction */}
         <motion.h2
-          className="text-2xl md:text-4xl font-bold mb-8"
+          className={`text-2xl md:text-4xl font-bold mb-8 ${
+            theme === "dark" ? "text-white" : "text-black"
+          }`}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
@@ -32,7 +38,9 @@ const Pricing = () => {
           {pricingPlansDb.map(({ name, id, price, features }) => (
             <motion.div
               key={id}
-              className="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl flex flex-col justify-between transition-shadow duration-300"
+              className={`p-6 rounded-lg shadow-lg hover:shadow-xl flex flex-col justify-between transition-shadow duration-300 ${
+                theme === "dark" ? "bg-[#040d2e] text-gray-300" : "bg-gray-100"
+              }`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: id * 0.2 }}
@@ -58,7 +66,11 @@ const Pricing = () => {
               </ul>
               <Link to={`/plan-checkout/${id}`}>
                 <motion.p
-                  className="bg-[#071F7E] text-white px-4 py-2 md:py-3 rounded hover:bg-[#031663] shadow-lg shadow-black/30 active:scale-95"
+                  className={`px-4 py-2 md:py-3 rounded shadow-lg shadow-black/30 active:scale-95 ${
+                    theme === "dark"
+                      ? "bg-blue-900 text-white hover:bg-blue-800"
+                      : "bg-[#071F7E] text-white hover:bg-[#031663]"
+                  }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >

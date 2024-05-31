@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import useInView from "../useInView";
@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import user from "../assets/user.jpg";
 import { FaRegBell } from "react-icons/fa";
 import { FaMicrophone } from "react-icons/fa6";
+import { FormContext } from "../App";
 
 const testimonials = [
   {
@@ -30,6 +31,7 @@ const testimonials = [
 
 const Testimonials = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
+  const { theme } = useContext(FormContext);
 
   const settings = {
     dots: true,
@@ -44,7 +46,9 @@ const Testimonials = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-16 bg-blue-100 relative overflow-hidden"
+      className={`py-16 relative overflow-hidden ${
+        theme === "dark" ? "bg-[#040d2e]" : "bg-blue-100"
+      }`}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
@@ -55,7 +59,9 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 text-center">
         {/* Section Introduction */}
         <motion.h2
-          className="text-2xl md:text-4xl font-bold mb-8"
+          className={`text-2xl md:text-4xl font-bold mb-8 ${
+            theme === "dark" ? "text-white" : "text-black"
+          }`}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
@@ -68,7 +74,9 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-white rounded-lg shadow-lg"
+              className={`p-6 rounded-lg shadow-lg transition-all duration-300 ${
+                theme === "dark" ? "bg-[#031663] text-gray-300" : "bg-white"
+              }`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -81,8 +89,18 @@ const Testimonials = () => {
                 alt={testimonial.name}
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
-              <h3 className="text-xl font-semibold mb-2">{testimonial.name}</h3>
-              <p className="text-gray-700">{testimonial.text}</p>
+              <h3
+                className={`text-xl font-semibold mb-2 ${
+                  theme === "dark" ? "text-white" : "text-black"
+                }`}
+              >
+                {testimonial.name}
+              </h3>
+              <p
+                className={theme === "dark" ? "text-gray-300" : "text-gray-700"}
+              >
+                {testimonial.text}
+              </p>
             </motion.div>
           ))}
         </Slider>

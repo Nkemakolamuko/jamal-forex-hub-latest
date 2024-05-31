@@ -54,7 +54,11 @@ function App() {
                 <Footer />
                 <MessageUs />
                 {/* Sign Up Form Overlay */}
-                <SignUpForm isVisible={isFormVisible} onClose={closeForm} />
+                <SignUpForm
+                  theme={theme}
+                  isVisible={isFormVisible}
+                  onClose={closeForm}
+                />
                 <CookieConsent />
                 {/* Sidebar */}
                 <SidebarSmall />
