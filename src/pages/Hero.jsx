@@ -25,10 +25,10 @@ const Hero = () => {
     >
       <LottieBackground />
       <div className="absolute inset-0 bg-gradient-to-t from-[#000414] to-[#010e42] opacity-90"></div>
-      <div className="container mx-auto px-4 h-full flex flex-col md:flex-row pt-36 md:pt-0 justify-center items-center text-white relative">
+      <div className="container mx-auto px-4 h-full flex flex-col lg:flex-row pt-36 lg:pt-0 justify-center md:justify-start md:items-start lg:justify-center lg:items-center items-center text-white relative">
         {/* Left Content */}
         <motion.div
-          className="md:w-1/2 w-full"
+          className="lg:w-1/2 w-full"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -70,7 +70,7 @@ const Hero = () => {
 
         {/* Right Lottie Animation */}
         <motion.div
-          className="md:w-1/2 mt-8 md:mt-0"
+          className="lg:w-1/2 mt-8 lg::mt-0"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}

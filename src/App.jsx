@@ -13,6 +13,7 @@ import SignUpForm from "./components/SignUpForm";
 import CookieConsent from "./components/AcceptCookies";
 import Headroom from "react-headroom";
 import SidebarSmall from "./components/SidebarSmall";
+import Satisfaction from "./pages/Satisfaction";
 
 export const FormContext = createContext(null);
 
@@ -50,6 +51,7 @@ function App() {
                 <Features />
                 <Testimonials />
                 <Pricing />
+                <Satisfaction />
                 <Contact />
                 <Footer />
                 <MessageUs />
