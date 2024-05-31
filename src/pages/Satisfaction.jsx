@@ -8,7 +8,7 @@ const Satisfaction = () => {
 
   return (
     <section
-      className="relative bg-cover bg-center h-auto text-white flex items-center justify-center mb-16 md:py-8 py-4"
+      className="relative bg-cover bg-center h-auto text-white flex items-center justify-center md:py-8 py-4"
       style={{
         backgroundImage:
           'url("https://images.unsplash.com/photo-1712237051567-b86cffac7b36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fExpbmVzJTIwb2Y2h8fHx8fHww%3D%3D")',
@@ -44,6 +44,7 @@ const Satisfaction = () => {
             <CountUp start={0} end={784} delay={0} duration={3}>
               {({ countUpRef }) => (
                 <div className="text-[#388eff]">
+                  <span className="text-white mr-2">+</span>
                   <span ref={countUpRef} />
                 </div>
               )}
