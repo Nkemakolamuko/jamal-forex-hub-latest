@@ -99,7 +99,9 @@ const Header = () => {
             to="home"
             smooth={true}
             duration={500}
-            className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
+            className={`text-[#071F7E] hover:text-[#031663] ${
+              theme === "dark" && "!text-slate-200"
+            } block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
               active === "Home" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Home")}
@@ -110,7 +112,9 @@ const Header = () => {
             to="features"
             smooth={true}
             duration={500}
-            className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
+            className={`text-[#071F7E] hover:text-[#031663] ${
+              theme === "dark" && "!text-slate-200"
+            } block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
               active === "Features" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Features")}
@@ -121,7 +125,9 @@ const Header = () => {
             to="pricing"
             smooth={true}
             duration={500}
-            className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
+            className={`text-[#071F7E] hover:text-[#031663] ${
+              theme === "dark" && "!text-slate-200"
+            } block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
               active === "Pricing" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Pricing")}
@@ -132,7 +138,9 @@ const Header = () => {
             to="testimonials"
             smooth={true}
             duration={500}
-            className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
+            className={`text-[#071F7E] hover:text-[#031663] ${
+              theme === "dark" && "!text-slate-200"
+            } block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
               active === "Testimonials" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Testimonials")}
@@ -143,7 +151,9 @@ const Header = () => {
             to="contact"
             smooth={true}
             duration={500}
-            className={`text-[#071F7E] hover:text-[#031663] block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
+            className={`text-[#071F7E] hover:text-[#031663] ${
+              theme === "dark" && "!text-slate-200"
+            } block mt-4 md:inline-block md:mt-0 header transition-all duration-300 ${
               active === "Contact" ? "bg-[#0000f1]/20 text-[#0000f1]" : ""
             } px-2 py-1 rounded hover:bg-[#0000f1]/20 cursor-pointer`}
             onClick={() => setActive("Contact")}
