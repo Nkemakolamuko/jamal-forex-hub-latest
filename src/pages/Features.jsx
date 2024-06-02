@@ -81,7 +81,7 @@ const Features = () => {
                 className={`${
                   theme === "dark"
                     ? "text-gray-300 group-hover:text-slate-200"
-                    : "text-gray-700 group-hover:!text-slate-200"
+                    : "group-hover:text-slate-200"
                 }`}
               >
                 {feature.description}

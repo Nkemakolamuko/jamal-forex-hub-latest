@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import useInView from "../useInView";
 import pricingPlansDb from "../db/pricingPlansDb";
 import { FormContext } from "../App";
+import { FaMoneyBill1Wave } from "react-icons/fa6";
 
 const Pricing = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
@@ -12,7 +13,7 @@ const Pricing = () => {
   return (
     <motion.section
       ref={ref}
-      className={`py-16 overflow-hidden ${
+      className={`py-16 overflow-hidden relative ${
         theme === "dark" ? "bg-[#031663]" : "bg-white"
       }`}
       initial={{ opacity: 0 }}
@@ -20,6 +21,7 @@ const Pricing = () => {
       transition={{ duration: 0.5 }}
       id="pricing"
     >
+      <FaMoneyBill1Wave className="w-60 h-60 opacity-30 text-blue-500 hidden md:flex lg:hidden absolute bottom-10 right-0 -rotate-12 contact" />
       <div className="container mx-auto px-4 text-center">
         {/* Section Introduction */}
         <motion.h2
@@ -34,7 +36,7 @@ const Pricing = () => {
         </motion.h2>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {pricingPlansDb.map(({ name, id, price, features }) => (
             <motion.div
               key={id}

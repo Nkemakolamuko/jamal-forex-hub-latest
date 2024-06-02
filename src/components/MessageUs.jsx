@@ -12,7 +12,7 @@ const MessageUs = () => {
       initial={{ opacity: 0, x: 300 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 2 }}
-      className="fixed top-[50%] left-0 z-50 border bg-[#010e42] border-white text-white rounded-r flex items-center shadow-lg cursor-pointer overflow-hidden pr-1"
+      className="fixed top-[50%] left-0 z-50 border-y border-r bg-[#010e42] border-white text-white rounded-r-[8px] flex items-center shadow-lg cursor-pointer overflow-hidden pr-1"
     >
       {chat ? (
         <span className="p-4" onClick={() => setChat(false)}>
